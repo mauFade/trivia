@@ -9,9 +9,7 @@ func main() {
 	db.OpenDatabase()
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("VAMOSSSSSS")
-	})
+	setupRoutes(app)
 
 	app.Listen(":3000")
 }
