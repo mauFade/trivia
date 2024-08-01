@@ -7,7 +7,10 @@ import (
 )
 
 func Home(c *fiber.Ctx) error {
-	return c.SendString("VAMOSSSSSS")
+	facts := []models.Fact{}
+	db.Database.DB.Find(&facts)
+
+	return c.Status(200).JSON(facts)
 }
 
 func CreateFact(c *fiber.Ctx) error {
